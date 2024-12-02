@@ -142,12 +142,17 @@ window.addEventListener('load', async () => {
   let RandColor = getRandomColor();
   initialDot.style.backgroundColor = RandColor;
   clickableImage1.addEventListener('mousemove', function (event) {
-    initialDot.style.left = `${event.offsetX + padX - dotRadius}px`;
-    initialDot.style.top = `${event.offsetY + padY - dotRadius}px`;
     initialDot.natural = calculateNaturalLocation(event.offsetX, event.offsetY);
-    initialDot.pid = findNearestPoint(data,0,event.offsetX,event.offsetY);
-    initialDot.style.left = `${event.offsetX + padX - dotRadius}px`;
-    initialDot.style.top = `${event.offsetY + padY - dotRadius}px`;
+    // initialDot.natural = calculateNaturalLocation(initialDot.natural.x, initialDot.natural.y);
+
+    initialDot.pid = findNearestPoint(data,0,initialDot.natural.x, initialDot.natural.y);
+      const scaleX = img.width / 856;
+      const scaleY = img.height / 480;
+      const naturalX = Math.round(data[0][initialDot.pid][0] * scaleX);
+      const naturalY = Math.round(data[0][initialDot.pid][1] * scaleY);
+
+    initialDot.style.left = `${naturalX}px`;
+    initialDot.style.top = `${naturalY}px`;
   })
 
   function getRandomColor() {
@@ -223,19 +228,6 @@ window.addEventListener('load', async () => {
       const y = dot.natural.y;
       const pid = dot.pid;
       const color = dot.style.backgroundColor;
-      var {red, green, blue, alpha} = read_pixel(image_ctx, x, y);
-      flow_x = ((red << 4) | (green >> 4)) - 2048;
-      flow_y = ((blue << 4) | (green & 0b1111)) - 2048;
-
-      const loc2 = calculateViewLocation(x + flow_x, y + flow_y);
-      if (loc2.x > clickableImage2.width || loc2.y > clickableImage2.height
-          || loc2.x < 0 || loc2.y < 0
-      ) {
-        // Out of bounds, don't show this dot.
-        return;
-      }
-      var {red, green, blue, alpha} = read_pixel(mask_ctx, x, y);
-      const visible = (red == 0);
       const dot2 = document.createElement('div');
       dot2.style.backgroundColor = color;
 
@@ -244,20 +236,18 @@ window.addEventListener('load', async () => {
     const scaleY = img.height / 480;
     const naturalX = Math.round(data[slider.value][pid][0] * scaleX);
     const naturalY = Math.round(data[slider.value][pid][1] * scaleY);
-      if (visible) {
+      const visible = data[slider.value][pid][2];
+
+      if (!visible) {
         dot2.classList.add('dot');
-        // dot2.style.left = `${loc2.x + padX - dotRadius}px`;
-        // dot2.style.top = `${loc2.y + padY - dotRadius}px`;
       } else {
         dot2.classList.add('cross');
-        // dot2.style.left = `${loc2.x + padX - crossRadius}px`;
-        // dot2.style.top = `${loc2.y + padY - crossRadius}px`;
       }
 
       dot2.style.left = `${naturalX}px`;
       dot2.style.top = `${naturalY}px`;
       console.log("fl0ow")
-      console.log("flow",loc2.x + padX - dotRadius,loc2.y + padY - dotRadius)
+      console.log("fl0ow",pid,slider.value)
       // console.log("fl0ow",data[slider.value][pid][0],data[slider.value][pid][1])
       console.log("fl0ow",naturalX,naturalY)
       // console.log("floo0w",calculateNaturalLocation(data[slider.value][pid][0],data[slider.value][pid][1]))
@@ -280,11 +270,20 @@ window.addEventListener('load', async () => {
     dot1.natural = calculateNaturalLocation(event.offsetX, event.offsetY);
     dot1.pid = findNearestPoint(data,0,dot1.natural.x,dot1.natural.y)
 
-    // dot1.style.left = `${data[0][dot1.pid][0]}px`;
-    // dot1.style.top = `${data[0][dot1.pid][1]}px`;
 
-    dot1.style.left = `${offsetX}px`;
-    dot1.style.top = `${offsetY}px`;
+
+    const scaleX = clickableImage1.width / 856;
+    const scaleY = clickableImage1.height / 480;
+    const naturalX = Math.round(data[0][dot1.pid][0] * scaleX);
+    const naturalY = Math.round(data[0][dot1.pid][1] * scaleY);
+
+    dot1.style.left = `${naturalX}px`;
+    dot1.style.top = `${naturalY}px`;
+
+
+
+
+
     imageBoard1.appendChild(dot1);
     // update color
     RandColor = getRandomColor();
@@ -311,22 +310,3 @@ window.addEventListener('load', async () => {
 
   slider.addEventListener('input', transferDots);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
