@@ -86,7 +86,7 @@ window.addEventListener('load', async () => {
 
 
 // 调用函数并传入 JSON 文件的 URL
-  const data = await loadAndParseJSON('static/demo/kpts.json');
+  const data = await loadAndParseJSON('static/demo/kpts_blur.json');
 // window.data = data;
 
   images = preloadImages();

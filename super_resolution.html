@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Tracking Everything Everywhere All at Once">
+  <meta property="og:title" content="Tracking Everything Everywhere All at Once">
+  <meta property="og:description" content="Tracking Everything Everywhere All at Once">
+  <meta property="og:image" content="https://omnimotion.github.io/static/images/open_graph.jpg">
+  <meta property="twitter:title" content="Tracking Everything Everywhere All at Once">
+  <meta property="twitter:description" content="Tracking Everything Everywhere All at Once">
+  <meta property="twitter:image" content="https://omnimotion.github.io/static/images/open_graph.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="motion, tracking">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracking Everything Everywhere All at Once</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D65ZW4CJYF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D65ZW4CJYF');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script src="./static/js/jquery-3.6.4.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/lazy.js"></script>
+  <script src="./static/js/faster_sr.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Tracking Everything Everywhere All at Once</h1>
+          <h1 class="title is-2 publication-title">SinSR: Diffusion-Based Image Super-Resolution in a Single Step</h1>
+          <h1 class="title is-2 publication-title"> TAP: Tracking Any Point</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="column has-text-centered">
+  <div class="publication-links">
+    <!-- PDF Link. -->
+    <span class="link-block">
+                <a href="https://arxiv.org/abs/2306.05422"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+    <!-- Video Link. -->
+    <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=KHoAG3gA024"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+    <!-- Demo Link. -->
+    <span class="link-block">
+                <a href="#interactive_demo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-basketball-ball"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+              </span>
+    <!-- Code Link. -->
+    <span class="link-block">
+                <a href="https://github.com/qianqianwang68/omnimotion"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+        <br>
+    <span class="link-block">
+                <a href="./index.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+<!--                      <i class="fab fa-github"></i>-->
+                  </span>
+                  <span>Norm</span>
+                  </a>
+              </span>
+    <span class="link-block">
+                <a href="./blur.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+<!--                      <i class="fab fa-github"></i>-->
+                  </span>
+                  <span>Blur</span>
+                  </a>
+              </span>
+          <span class="link-block">
+                <a href="./super_resolution.html"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+<!--                      <i class="fab fa-github"></i>-->
+                  </span>
+                  <span>Super</span>
+                  </a>
+              </span>
+  </div>
+
+
+</div>
+
+
+<br>
+
+<section>
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Interactive Demo</h2>
+       <a id="interactive_demo"></a>
+    </div>
+</section>
+<section class="hero">
+  <div class="hero-body">
+    <div class="">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="columns is-centered" style="position: relative;">
+            <div class="column is-half image-board">
+              <img style="width: 100%;" class="clickable-image" src="static/demo/blackswan_sr/00000.jpg" alt="Image">
+            <div id="initial-dot"></div>
+          <!-- <div class="red-cross"></div> -->
+            </div>
+            <div class="column is-half image-board move">
+            <img style="width: 100%;" class="clickable-image" id="frame" src="static/demo/blackswan_sr/00000.jpg" alt="Frame 1">
+            <input style="margin: 0;" class="slider is-fullwidth is-large is-info" type="range" id="slider" min="1" step="1" value="0" class="slider">
+          </div>
+          </div>
+          <div class="columns is-centered">
+          <div id="clear-btn" class="button">clear points</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
