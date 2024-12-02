@@ -130,8 +130,6 @@ window.addEventListener('load', async () => {
     existingCross2.forEach(cross => imageBoard2.removeChild(cross));
   })
 
-  // var currentValue = slider.value;
-  // console.log('@@board-left', clickableImage1.offsetLeft);
   const padX = clickableImage1.offsetLeft;
   const padY = clickableImage1.offsetLeft;
   console.log("offsetLeft",padX, padY);
@@ -146,13 +144,12 @@ window.addEventListener('load', async () => {
     // initialDot.natural = calculateNaturalLocation(initialDot.natural.x, initialDot.natural.y);
 
     initialDot.pid = findNearestPoint(data,0,initialDot.natural.x, initialDot.natural.y);
-      const scaleX = img.width / 856;
-      const scaleY = img.height / 480;
+      const scaleX = clickableImage1.width / 856;
+      const scaleY = clickableImage1.height / 480;
       const naturalX = Math.round(data[0][initialDot.pid][0] * scaleX);
       const naturalY = Math.round(data[0][initialDot.pid][1] * scaleY);
-
-    initialDot.style.left = `${naturalX}px`;
-    initialDot.style.top = `${naturalY}px`;
+    initialDot.style.left = `${naturalX + padX - dotRadius}px`;
+    initialDot.style.top = `${naturalY + padY - dotRadius}px`;
   })
 
   function getRandomColor() {
@@ -244,8 +241,8 @@ window.addEventListener('load', async () => {
         dot2.classList.add('cross');
       }
 
-      dot2.style.left = `${naturalX}px`;
-      dot2.style.top = `${naturalY}px`;
+    dot2.style.left = `${naturalX + padX - dotRadius}px`;
+    dot2.style.top = `${naturalY + padY - dotRadius}px`;
       console.log("fl0ow")
       console.log("fl0ow",pid,slider.value)
       // console.log("fl0ow",data[slider.value][pid][0],data[slider.value][pid][1])
@@ -277,8 +274,9 @@ window.addEventListener('load', async () => {
     const naturalX = Math.round(data[0][dot1.pid][0] * scaleX);
     const naturalY = Math.round(data[0][dot1.pid][1] * scaleY);
 
-    dot1.style.left = `${naturalX}px`;
-    dot1.style.top = `${naturalY}px`;
+
+    dot1.style.left = `${naturalX + padX - dotRadius}px`;
+    dot1.style.top = `${naturalY + padY - dotRadius}px`;
 
 
 
