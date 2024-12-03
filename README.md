@@ -8,7 +8,7 @@ A[primary image] --SinSR--> C[super resolution image]
 B --> E[omnimotion]
 C-->E
 D-->E
-E--eval-->f[TAP]
+E--TAP-->f[eval]
 ```
 
 \
